@@ -1,0 +1,4 @@
+[+] Loaded 8 primes
+[+] Computed private exponent d
+[7] Actually what's your email?
+[8] It's W3b3_i5_Gr8@flare-on.com
