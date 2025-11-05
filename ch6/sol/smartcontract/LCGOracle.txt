@@ -1,0 +1,31 @@
+pragma solidity ^0.8.0;
+
+contract DecompiledLCG {
+
+    /**
+     * @notice This contract implements a Linear Congruential Generator (LCG)
+     *         to produce a sequence of pseudorandom numbers.
+     *         The function is 'pure', meaning it does not read from or write to
+     *         the blockchain state and its output depends only on its inputs.
+     */
+    function nextVal(
+        uint256 LCG_MULTIPLIER,
+        uint256 LCG_INCREMENT,
+        uint256 LCG_MODULUS,
+        uint256 _currentState,
+        uint256 _counter
+    ) public pure returns (uint256) {
+        
+        // This loop iterates '_counter' times, each time generating the next
+        // number in the LCG sequence.
+        for (uint256 i = 0; i < _counter; i++) {
+            
+            // This is the core LCG formula:
+            // X_{n+1} = (a * X_n + c) mod m
+            // where a = multiplier, c = increment, m = modulus, and X_n = current state.
+            _currentState = (_currentState * LCG_MULTIPLIER + LCG_INCREMENT) % LCG_MODULUS;
+        }
+
+        return _currentState;
+    }
+}
